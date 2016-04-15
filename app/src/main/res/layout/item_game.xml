@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/width_100"
+    android:orientation="vertical"
+    android:background="@drawable/layout_bottom_border"
+    android:descendantFocusability="blocksDescendants">
+    <!-- 阻止子控件截获焦点 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_8"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/game_img"
+            android:layout_width="@dimen/width_70"
+            android:layout_height="@dimen/width_70"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/padding_10"/>
+
+        <TextView
+            android:id="@+id/game_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_6"
+            android:layout_toRightOf="@id/game_img"
+            android:text="宝石之星单机版安卓游戏下载"
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/game_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:layout_toRightOf="@id/game_img"
+            android:layout_below="@id/game_title"
+            android:text="info"
+            />
+
+        <Button
+            android:id="@+id/game_download"
+            android:layout_width="@dimen/width_56"
+            android:layout_height="@dimen/height_36"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round_corner"
+            android:text="@string/txt_download"
+            android:textColor="@color/white"
+            android:theme="@style/MyButton"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="#f00"/>
+</LinearLayout>

@@ -1,0 +1,108 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/id_stickynavlayout_innerscrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <HorizontalScrollView
+            android:id="@+id/hsv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" >
+
+            <com.geili.view.HSVLayout
+                android:id="@+id/movieLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_200"
+                />
+        </HorizontalScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:background="#DBDBDB"
+            >
+
+            <TextView
+                android:id="@+id/app_describ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_describ"
+                android:drawableLeft="@drawable/app_describ"
+                android:gravity="center_vertical"
+                android:paddingRight="5dp"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/game_comment1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/app_describ"
+                android:background="@drawable/broadcast"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="小编广播:"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/game_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/app_describ"
+                android:background="@drawable/broadcast"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/game_intro_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/game_comment"
+                />
+
+            <TextView
+                android:id="@+id/labels_text"
+                android:drawableLeft="@drawable/labels"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/game_intro_text"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:text="应用标签"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+            <co.hkm.soltag.TagContainerLayout
+                android:id="@+id/tagcontainerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                app:container_enable_drag="false"
+                app:horizontal_interval="10dp"
+                app:vertical_interval="10dp"
+                android:layout_below="@id/labels_text"
+                app:tag_corner_radius="2dp"
+                app:tag_background_color="#00000000"
+                app:tag_border_color="#330000ff"
+                app:tag_border_width="1dp"
+                app:tag_clickable="true"
+                app:container_border_width="0dp"
+                app:container_border_color="#DBDBDB"
+                app:container_background_color="#DBDBDB"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

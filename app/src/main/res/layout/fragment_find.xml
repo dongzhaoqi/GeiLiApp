@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.geili.view.SlideShowView
+        android:id="@+id/slideshowView"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="@dimen/padding_8"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/layout_find_game"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:id="@+id/find_game"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_game"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_game"
+                android:layout_marginLeft="10dp"
+                android:layout_centerInParent="true"
+                android:text="游  戏"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_find_tool"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:id="@+id/find_tools"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_tools"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_tools"
+                android:layout_marginLeft="10dp"
+                android:text="工 具"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_find_gift"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:id="@+id/find_gift"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_gift"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/find_gift"
+                android:layout_marginLeft="10dp"
+                android:text="礼 包"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/layout_find_strategy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/find_strategy"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_strategy" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_strategy"
+                android:layout_marginLeft="10dp"
+                android:text="攻 略"
+                android:layout_centerHorizontal="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_find_special"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/find_special"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_special"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_special"
+                android:layout_marginLeft="10dp"
+                android:text="专 题"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/layout_find_week"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/find_weekrecommend"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_weekrecommend"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_weekrecommend"
+                android:text="每周一荐"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_find_forum"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/find_forum"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_forum"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/find_forum"
+                android:layout_marginLeft="10dp"
+                android:text="论 坛"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_find_sign"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/find_sign"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/find_sign"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/find_sign"
+                android:layout_marginLeft="10dp"
+                android:text="签 到"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+</ScrollView>

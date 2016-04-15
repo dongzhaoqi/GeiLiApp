@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding_8">
+
+        <ImageView
+            android:id="@+id/img_game"
+            android:layout_width="@dimen/width_80"
+            android:layout_height="@dimen/width_80"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_8"
+            android:src="@drawable/find_game"/>
+
+        <TextView
+            style="@style/txt_game"
+            android:id="@+id/tv_game_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刀塔传奇"
+            android:layout_toRightOf="@id/img_game"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            style="@style/txt_game"
+            android:id="@+id/tv_game_emulator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支持模拟器"
+            android:layout_toRightOf="@id/img_game"
+            android:layout_below="@id/tv_game_title"
+            />
+
+        <TextView
+            style="@style/txt_game"
+            android:id="@+id/tv_game_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下载量:623"
+            android:layout_toRightOf="@id/img_game"
+            android:layout_below="@id/tv_game_emulator"
+            />
+
+        <TextView
+            style="@style/txt_game"
+            android:id="@+id/tv_game_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="245M"
+            android:layout_toRightOf="@id/img_game"
+            android:layout_below="@id/tv_game_download"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_score"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <net.yanzm.mth.MaterialTabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

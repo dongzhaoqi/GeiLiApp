@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:id="@+id/layout51"
+    android:paddingTop="10dp"
+    android:background="@drawable/left_thirld" >
+
+    <Button
+        android:id="@+id/button_51"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/week_recommend_normal"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/width_70" />
+    <TextView 
+        android:id="@+id/week_recommend_text"
+        android:layout_below="@id/button_51"
+        android:layout_centerHorizontal="true"
+        android:text="@string/week_recommend_text"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        />
+    <TextView 
+        android:layout_below="@id/week_recommend_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
+        android:text="@string/good_app"
+        />
+
+</RelativeLayout>

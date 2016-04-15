@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">给力助手</string>
+
+    <string name="action_info">Info</string>
+    <string name="action_close">Close</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="url_img_profile">http://i.imgur.com/DvpvklR.png</string>
+    <string name="url_img_header">https://pbs.twimg.com/profile_banners/390983842/1452327403/1500x500</string>
+
+    <!--左侧菜单-->
+    <string name="nav_usb">开启USB调试</string>
+    <string name="nav_update">检查更新</string>
+    <string name="nav_favorite">猜你喜欢</string>
+    <string name="nav_set">设置</string>
+    <string name="nav_feedback">一键反馈</string>
+    <string name="nav_login">登录</string>
+    <string name="nav_logout">注销</string>
+
+    <!--底部菜单-->
+    <string name="tab_1">账号</string>
+    <string name="tab_2">管理</string>
+    <string name="tab_3">主页</string>
+    <string name="tab_4">发现</string>
+    <string name="tab_5">帮助</string>
+
+    <string name="txt_unload">卸载</string>
+    <string name="txt_tel">手机</string>
+    <string name="txt_feedback">请输入您的意见和建议,以帮助我们更好的改进产品</string>
+    <string name="txt_tel_hint">请输入手机号</string>
+
+    <!--发现-->
+    <string name="txt_strategy">游戏攻略</string>
+    <string name="txt_gift">礼包</string>
+    <string name="txt_get">领取</string>
+    <string name="txt_download">下载</string>
+
+
+
+    <!--登录、注册-->
+    <string name="txt_login_username_hint">请输入手机号/用户名</string>
+    <string name="txt_login_password_hint">请输入密码</string>
+    <string name="txt_login_confirm_hint">请输入确认密码</string>
+    <string name="txt_login">登录</string>
+    <string name="txt_register">注册</string>
+
+    <!--设置页面-->
+    <string name="txt_network">当手机2G/3G/4G网络时</string>
+
+    <string name="txt_show_pic">软件显示图片</string>
+    <string name="txt_show_pic_hint">不加载软件图片可以节省流量</string>
+    <string name="txt_data_max_hint">使用流量下载上限提醒</string>
+    <string name="txt_wallpaper">壁纸设置</string>
+    <string name="txt_auto_save">自动切换至省流量模式</string>
+    <string name="txt_always">关闭后始终显示高清图片</string>
+    <string name="txt_download_set">下载设置</string>
+    <string name="txt_download_maxium">最大下载任务数</string>
+    <string name="txt_download_max_num">设置可同时下载应用的最大数量</string>
+    <string name="txt_install">下载完成提示安装</string>
+    <string name="txt_install_hint">下载完成后自动弹出安装界面</string>
+
+    <!--一键反馈-->
+    <string name="action_send">发送</string>
+
+
+    <!--主页-->
+    <string name="data_sync_text">USB同步</string>
+    <string name="data_line_sync">通过数据线同步</string>
+    <string name="baidu_rank">百度排行</string>
+    <string name="rank_360">360排行</string>
+    <string name="danji_rank_ten">单机手游前十</string>
+    <string name="wangyou_rank_ten">手机网游前十</string>
+    <string name="game_classify">游戏分类</string>
+    <string name="classify_mode">六大分类模式</string>
+    <string name="game_gift">游戏礼包</string>
+    <string name="game_strategy_text">游戏攻略</string>
+    <string name="hot_game_gift">热门游戏礼包</string>
+    <string name="hot_game_strategy">热门游戏攻略</string>
+    <string name="week_recommend_text">每周一荐</string>
+    <string name="good_app">挖掘最美应用</string>
+    <string name="bbs">论坛社区</string>
+    <string name="enter_bbs">进入论坛社区</string>
+    <string name="qq_community">QQ社群</string>
+    <string name="enter_qqcommunity">进入QQ聊天群</string>
+
+    <string name="str_network">网游</string>
+    <string name="str_single">单机</string>
+    <string name="str_tool">工具</string>
+
+    <string name="str_intro">简介</string>
+    <string name="str_review">评论</string>
+    <string name="str_strategy">攻略</string>
+    <string name="str_gift">礼包</string>
+
+    <string name="app_describ">应用描述</string>
+
+    <string name="info_message">
+        <![CDATA[
+            Header View is a library created by <b>Raphaël Bussa</b><br>
+            <a href="https://github.com/rebus007">GitHub</a> <a href="https://twitter.com/rebus_007">Twitter</a> <a href="https://plus.google.com/+RaphaelBussa/posts">Google+</a> <a href="https://www.linkedin.com/in/rebus007">Linkedin</a><br><br>
+            Third party libraries used in this sample: <a href="http://square.github.io/picasso/">Picasso</a>
+        ]]>
+    </string>
+
+    <string name="username">root</string>
+
+    <string name="avatar_click">Avatar clicked!</string>
+    <string name="arrow_click">Arrow clicked!</string>
+    <string name="header_long_click">On Long Click Header</string>
+</resources>

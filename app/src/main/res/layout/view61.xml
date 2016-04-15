@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout61"
+    android:paddingTop="10dp"
+    android:background="@drawable/right_thirld" >
+
+    <Button
+        android:id="@+id/button_61"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bbs_normal"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/width_70" />
+    <TextView 
+        android:id="@+id/bbs_text"
+        android:layout_below="@id/button_61"
+        android:layout_centerHorizontal="true"
+        android:text="@string/bbs"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        />
+    <TextView 
+        android:layout_below="@id/bbs_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
+        android:text="@string/enter_bbs"
+        />
+
+</RelativeLayout>

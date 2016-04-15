@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_network"
+                android:textColor="@color/primary"
+                android:padding="@dimen/padding_16"
+                />
+
+            <RelativeLayout
+                android:id="@+id/layout_show_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/padding_16">
+
+                <TextView
+                    android:id="@+id/txt_data_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_24"
+                    android:text="@string/txt_show_pic"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_data_max"
+                    android:text="@string/txt_show_pic_hint"
+                    android:textSize="@dimen/text_size_12"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_show_pic"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@drawable/divider"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/padding_16">
+
+                <TextView
+                    android:id="@+id/txt_show_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_24"
+                    android:text="@string/txt_data_max_hint"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"/>
+
+                <TextView
+                    android:id="@+id/current_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_show_pic"
+                    android:text="当前值:"/>
+
+                <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/current_value"
+                    android:paddingLeft="-8dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_wallpaper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/padding_16">
+
+                <TextView
+                    android:id="@+id/txt_wallpaper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_24"
+                    android:text="@string/txt_wallpaper"
+                    android:textSize="@dimen/text_size_14"/>
+
+                <TextView
+                    android:id="@+id/txt_auto_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_wallpaper"
+                    android:text="@string/txt_auto_save"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_auto_save"
+                    android:paddingTop="@dimen/padding_4"
+                    android:text="@string/txt_always"
+                    android:textSize="@dimen/text_size_12"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_wallpaper"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@drawable/divider"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_download_set"
+                android:textColor="@color/primary"
+                android:padding="@dimen/padding_16"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/padding_16">
+
+                <TextView
+                    android:id="@+id/txt_download_maxium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_24"
+                    android:text="@string/txt_download_maxium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"/>
+
+                <TextView
+                    android:id="@+id/txt_donload_max_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_download_maxium"
+                    android:text="@string/txt_download_max_num"
+                    android:textSize="@dimen/text_size_12"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@drawable/divider"/>
+
+            <RelativeLayout
+                android:id="@+id/layout_install_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="@dimen/padding_16"
+                android:paddingBottom="@dimen/padding_6"
+                android:paddingLeft="@dimen/padding_16"
+                android:paddingRight="@dimen/padding_16">
+
+                <TextView
+                    android:id="@+id/txt_install"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_24"
+                    android:text="@string/txt_install"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"/>
+
+                <TextView
+                    android:id="@+id/txt_install_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_install"
+                    android:text="@string/txt_install_hint"
+                    android:textSize="@dimen/text_size_12"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_install_hint"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
