@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.geili.adapter.HSVAdapter;
@@ -26,8 +27,11 @@ public class HSVLayout extends LinearLayout {
 		for (int i = 0; i < adapter.getCount(); i++) {
 			final Map<String, Object> map = adapter.getItem(i);
 			View view = adapter.getView(i, null, null);
-			view.setPadding(2, 2, 2, 2);
-			
+			/*view.setPadding(10, 0, 10, 0);*/
+
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+
 			view.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -41,8 +45,7 @@ public class HSVLayout extends LinearLayout {
 				}
 			});
 			this.setOrientation(HORIZONTAL);
-			this.addView(view, new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+			this.addView(view, params);
 		}
 	}
 }

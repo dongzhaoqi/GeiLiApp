@@ -31,7 +31,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -41,14 +43,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.geili.R;
 import com.geili.fragment.AccountFragment;
 import com.geili.fragment.FindFragment;
 import com.geili.fragment.HomePageFragment;
 import com.geili.fragment.ManageFragment;
 import com.geili.view.CustomApplication;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -62,8 +64,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;
     private NavigationView navigationView;
-    private AHBottomNavigation bottomNavigation;
-    private ArrayList<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
+    private BottomBar mBottomBar;
+    private int pos;
     private static long firstTime;
 
     private Fragment[] fragments;
@@ -79,9 +81,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_main);
 
         initView();
-
+        mBottomBar = BottomBar.attach(this, savedInstanceState);
         initFragment();
-
         initBottom();
     }
 
@@ -164,7 +165,38 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
      * 初始化底部导航栏
      */
     private void initBottom() {
-        bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+        mBottomBar.noTopOffset();
+        mBottomBar.useFixedMode();
+        mBottomBar.setItemsFromMenu(R.menu.menu_bottom, new OnMenuTabClickListener() {
+            @Override
+            public void onMenuTabSelected(@IdRes int menuItemId) {
+                if (menuItemId == R.id.menu_account) {
+                    pos = 0;
+                } else if (menuItemId == R.id.menu_manage) {
+                    pos = 1;
+                } else if (menuItemId == R.id.menu_homepage) {
+                    pos = 2;
+                } else if (menuItemId == R.id.menu_find) {
+                    pos = 3;
+                }
+                fragmentManager.beginTransaction()
+                        .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
+                        .replace(R.id.fragment_container, fragments[pos])
+                        .commit();
+            }
+
+            @Override
+            public void onMenuTabReSelected(@IdRes int menuItemId) {
+
+            }
+        });
+
+        mBottomBar.mapColorForTab(0, "#FFFCFF");
+        mBottomBar.mapColorForTab(1, "#FFFCFF");
+        mBottomBar.mapColorForTab(2, "#FFFCFF");
+        mBottomBar.mapColorForTab(3, "#FFFCFF");
+
+        /*bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.tab_account_selector, R.color.color_tab_1);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.tab_manage_selector, R.color.color_tab_2);
@@ -187,7 +219,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         .replace(R.id.fragment_container, fragments[position])
                         .commit();
             }
-        });
+        });*/
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Necessary to restore the BottomBar's state, otherwise we would
+        // lose the current tab on orientation change.
+        mBottomBar.onSaveInstanceState(outState);
     }
 
     @Override

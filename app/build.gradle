@@ -5,8 +5,8 @@ android {
     buildToolsVersion '23.0.2'
 
     defaultConfig {
-        applicationId "rebus.header.view.sample"
-        minSdkVersion 16
+        applicationId "com.geili"
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 3
         versionName "1.1.1"
@@ -37,7 +37,6 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.aurelhubert:ahbottomnavigation:0.1.6'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'com.xwray:passwordview:0.1'
     compile 'com.orhanobut:dialogplus:1.11@aar'
@@ -49,4 +48,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.hkm.taglib:tag:1.2.0'
     compile 'se.emilsjolander:StickyScrollViewItems:1.1.0'
+    compile 'com.roughike:bottom-bar:1.3.3'
 }
