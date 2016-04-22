@@ -48,6 +48,7 @@ import com.geili.fragment.HomePageFragment;
 import com.geili.fragment.ManageFragment;
 import com.geili.view.CustomApplication;
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.BottomBarBadge;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.squareup.picasso.Picasso;
 
@@ -194,7 +195,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         mBottomBar.mapColorForTab(1, "#FFFCFF");
         mBottomBar.mapColorForTab(2, "#FFFCFF");
         mBottomBar.mapColorForTab(3, "#FFFCFF");
-
+        //BottomBarBadge unreadMessages = mBottomBar.makeBadgeForTabAt(3, "#FF0000", 13);
+        //unreadMessages.show();
     }
 
     @Override

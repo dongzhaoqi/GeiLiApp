@@ -165,10 +165,9 @@ public class HeaderView extends RelativeLayout {
         userEmail.setEllipsize(TextUtils.TruncateAt.END);
         userEmail.setLayoutParams(textParams);
         LinearLayout.LayoutParams avatarParams = new LinearLayout.LayoutParams(avatarSize, avatarSize);
-        avatarParams.setMargins(0, 0, 0, marginSize);
+        avatarParams.setMargins(0, 0, 0, 0);
         avatar = new AvatarView(getContext());
         avatar.setLayoutParams(avatarParams);
-        avatar.setScaleType(ImageView.ScaleType.CENTER_CROP);
         avatar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

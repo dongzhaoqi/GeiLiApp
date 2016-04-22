@@ -16,8 +16,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import android.widget.LinearLayout;
-
+import android.view.ViewGroup.LayoutParams;
 import com.geili.R;
 import com.squareup.picasso.Picasso;
 
@@ -51,15 +50,13 @@ public class HSVAdapter extends BaseAdapter {
 	}
 	@Override
 	public View getView(int location, View arg1, ViewGroup arg2) {
-		View view = LayoutInflater.from(context).inflate(R.layout.hsv,null);
-		ImageView image=(ImageView)view.findViewById(R.id.movie_image);
-		image.setScaleType(ScaleType.FIT_CENTER);
-
+		ImageView image = new ImageView(context);
+		image.setScaleType(ScaleType.FIT_XY);
 		Map<String,Object> map=getItem(location);
 		String urlString = map.get("image").toString();
 		Log.i("url", urlString);
 		Picasso.with(context).load(urlString).into(image);
-		return view;
+		return image;
 	}
 
 }
