@@ -10,38 +10,37 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.geili.R;
 import com.geili.activity.GameInfoActivity;
 import com.geili.bean.Game;
-import com.geili.util.ContantValues;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Dong on 4/4/2016.
  */
-public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
+public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 
     private static Context mContext;
     private static ArrayList<Game> mGameList = new ArrayList<>();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mGameImg;
-        public TextView mGameTitle;
-        public TextView mGameInfo;
-        private Button game_download;
+        @Bind(R.id.game_img) ImageView mGameImg;
+        @Bind(R.id.game_title) TextView mGameTitle;
+        @Bind(R.id.game_info) TextView mGameInfo;
+        @Bind(R.id.game_download) Button game_download;
 
         public ViewHolder(View v) {
             super(v);
-            mGameImg = (ImageView) v.findViewById(R.id.game_img);
-            mGameTitle = (TextView) v.findViewById(R.id.game_title);
-            mGameInfo = (TextView) v.findViewById(R.id.game_info);
-            game_download = (Button) v.findViewById(R.id.game_download);
+            ButterKnife.bind(this, v);
+
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -60,7 +59,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
     }
 
     @Override
-    public GameAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;

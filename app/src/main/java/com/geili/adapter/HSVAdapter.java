@@ -28,7 +28,7 @@ public class HSVAdapter extends BaseAdapter {
 	private Context context;
 	public HSVAdapter(Context context){
 		this.context=context;
-		this.list=new ArrayList<Map<String,Object>>();
+		this.list=new ArrayList<>();
 	}
 	@Override
 	public int getCount() {

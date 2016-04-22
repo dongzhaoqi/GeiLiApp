@@ -27,7 +27,7 @@ public class HSVLayout extends LinearLayout {
 		for (int i = 0; i < adapter.getCount(); i++) {
 			final Map<String, Object> map = adapter.getItem(i);
 			View view = adapter.getView(i, null, null);
-			/*view.setPadding(10, 0, 10, 0);*/
+			view.setPadding(10, 0, 10, 0);
 
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);

@@ -12,84 +12,75 @@ import com.geili.R;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 /**
  * Created by Dong on 3/27/2016.
  */
-public class SettingActivity extends BaseActivity  implements View.OnClickListener{
+public class SettingActivity extends BaseActivity {
 
-    private Toolbar toolbar;
-    private TextView currentValue;
-    private DiscreteSeekBar seekBar;
-    private RelativeLayout layout_show_pic,layout_wallpaper,layout_install_hint;
-    private SwitchCompat switch_show_pic,switch_wallpaper,switch_install_hint;
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.current_value) TextView currentValue;
+    @Bind(R.id.layout_show_pic) RelativeLayout layout_show_pic;
+    @Bind(R.id.layout_wallpaper) RelativeLayout layout_wallpaper;
+    @Bind(R.id.layout_install_hint) RelativeLayout layout_install_hint;
+    @Bind(R.id.switch_show_pic) SwitchCompat switch_show_pic;
+    @Bind(R.id.switch_wallpaper) SwitchCompat switch_wallpaper;
+    @Bind(R.id.switch_install_hint) SwitchCompat switch_install_hint;
+    @Bind(R.id.seekbar) DiscreteSeekBar seekbar;
+
+    @OnClick(R.id.layout_show_pic) void showPic(){
+        switch_show_pic.toggle();
+    }
+
+    @OnClick(R.id.layout_wallpaper) void setWallpaper(){
+        switch_wallpaper.toggle();
+    }
+
+    @OnClick(R.id.layout_install_hint) void hintInstall(){
+        switch_install_hint.toggle();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
+        ButterKnife.bind(this);
         initView();
         initEvent();
     }
+
     private void initView(){
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar != null){
             toolbar.setTitle(getString(R.string.nav_set));
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        currentValue = (TextView) findViewById(R.id.current_value);
-        layout_show_pic = (RelativeLayout) findViewById(R.id.layout_show_pic);
-        layout_wallpaper = (RelativeLayout) findViewById(R.id.layout_wallpaper);
-        layout_install_hint = (RelativeLayout) findViewById(R.id.layout_install_hint);
-
-        switch_show_pic = (SwitchCompat) findViewById(R.id.switch_show_pic);
-        switch_wallpaper = (SwitchCompat) findViewById(R.id.switch_wallpaper);
-        switch_install_hint = (SwitchCompat) findViewById(R.id.switch_install_hint);
-
-        seekBar = (DiscreteSeekBar) findViewById(R.id.seekbar);
     }
 
     private void initEvent(){
 
-        layout_show_pic.setOnClickListener(this);
-        layout_wallpaper.setOnClickListener(this);
-        layout_install_hint.setOnClickListener(this);
-
-
-        seekBar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
+        seekbar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
-            public void onProgressChanged(DiscreteSeekBar discreteSeekBar, int i, boolean b) {
+            public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
                 currentValue.setText("当前值:" + seekBar.getProgress());
             }
 
             @Override
-            public void onStartTrackingTouch(DiscreteSeekBar discreteSeekBar) {
+            public void onStartTrackingTouch(DiscreteSeekBar seekBar) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(DiscreteSeekBar discreteSeekBar) {
+            public void onStopTrackingTouch(DiscreteSeekBar seekBar) {
 
             }
         });
-    }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id){
-            case R.id.layout_show_pic:
-                switch_show_pic.toggle();
-                break;
-            case R.id.layout_wallpaper:
-                switch_wallpaper.toggle();
-                break;
-            case R.id.layout_install_hint:
-                switch_install_hint.toggle();
-                break;
-        }
     }
 
     @Override

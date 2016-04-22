@@ -10,15 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.geili.R;
 import com.geili.bean.User;
 import com.geili.util.ContantValues;
@@ -34,28 +33,37 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by Dong on 2016/3/27.
  */
-public class LoginActivity extends BaseActivity implements OnClickListener{
+public class LoginActivity extends BaseActivity {
 
-    private Toolbar toolbar;
-    private Button btn_sign_in;
-    private EditText et_email;
-    private PasswordView et_password;
-    private String str_email,str_password;
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.et_email) AutoCompleteTextView etEmail;
+    @Bind(R.id.et_password) PasswordView etPassword;
+    @Bind(R.id.btn_sign_in) Button btnSignIn;
+
+    @OnClick(R.id.btn_sign_in) void signin(){
+        attemptLogin();
+    }
+
+    private String str_email, str_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         initViews();
     }
 
     private void initViews() {
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setTitle(getString(R.string.nav_login));
             setSupportActionBar(toolbar);
@@ -63,10 +71,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        et_email = (EditText) findViewById(R.id.et_email);
-        et_password = (PasswordView) findViewById(R.id.et_password);
-        btn_sign_in = (Button) findViewById(R.id.btn_sign_in);
-        btn_sign_in.setOnClickListener(this);
     }
 
     @Override
@@ -88,24 +92,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if(id == R.id.btn_sign_in){
-            attemptLogin();
-        }
-    }
 
     private void attemptLogin() {
 
-        str_email = et_email.getText().toString();
-        str_password = et_password.getText().toString();
+        str_email = etEmail.getText().toString();
+        str_password = etPassword.getText().toString();
 
-        if(TextUtils.isEmpty(str_email)) {
+        if (TextUtils.isEmpty(str_email)) {
             showToast("用户名不能为空");
-        }else if(TextUtils.isEmpty(str_password)){
+        } else if (TextUtils.isEmpty(str_password)) {
             showToast("密码不能为空");
-        }else{
+        } else {
             toLogin();
         }
     }
@@ -142,7 +139,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
             e.printStackTrace();
         }
 
-        JsonObjectRequest request = new JsonObjectRequest(url, object, listener, errorListener){
+        JsonObjectRequest request = new JsonObjectRequest(url, object, listener, errorListener) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
@@ -154,22 +151,22 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
         CustomApplication.getInstance().addToRequestQueue(request);      //加入请求队列
     }
 
-    private void handleLogin(JSONObject arg0){
+    private void handleLogin(JSONObject arg0) {
         JSONObject result = arg0.optJSONObject("result");
         int code = arg0.optInt("errorCode");
-        if(code == 0){
+        if (code == 0) {
             User user = new User();
             user.setUserName(result.optString("userName"));
-            ((CustomApplication)getApplication()).setmUser(user);
+            ((CustomApplication) getApplication()).setmUser(user);
             startAnimActivity(MainActivity.class);
-            SharedPreferencesUtil.writeString(SharedPreferencesUtil.getSharedPreference(this,"login"),
+            SharedPreferencesUtil.writeString(SharedPreferencesUtil.getSharedPreference(this, "login"),
                     "userName", user.getUserName());
             showToast("登录成功");
         }
 
     }
 
-    private void toRegister(){
+    private void toRegister() {
         DialogPlus dialog = DialogPlus.newDialog(this)
                 .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setContentHolder(new ViewHolder(R.layout.activity_register))

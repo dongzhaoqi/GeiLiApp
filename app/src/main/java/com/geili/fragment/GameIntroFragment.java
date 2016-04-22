@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import co.hkm.soltag.TagContainerLayout;
 import co.hkm.soltag.TagView;
 
@@ -36,37 +38,32 @@ import co.hkm.soltag.TagView;
  */
 public class GameIntroFragment extends Fragment {
 
+    @Bind(R.id.movieLayout) HSVLayout movieLayout;
+    @Bind(R.id.game_comment) TextView game_comment;
+    @Bind(R.id.game_intro_text) TextView game_introduction;
+    @Bind(R.id.tagcontainerLayout) TagContainerLayout mTagContainerLayout;
+
     private View view;
-    private HSVLayout movieLayout = null;
     private HSVAdapter adapter = null;
     private HashMap<String, Object> mData;
     private List<HashMap<String, Object>> images;
     private static JSONArray imagesArray;
-    private TextView game_comment,game_introduction;
     private String[] labels;
-    private TagContainerLayout mTagContainerLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_game_intro,container,false);
+        view = inflater.inflate(R.layout.fragment_game_intro, container, false);
 
-        initView(view);
+        adapter = new HSVAdapter(getActivity());
         try {
             initData();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        ButterKnife.bind(this, view);
         return view;
-    }
-
-    private void initView(View v){
-        movieLayout = (HSVLayout) v.findViewById(R.id.movieLayout);
-        adapter = new HSVAdapter(getActivity());
-        game_comment = (TextView) v.findViewById(R.id.game_comment);
-        game_introduction = (TextView) v.findViewById(R.id.game_intro_text);
-        mTagContainerLayout = (TagContainerLayout) v.findViewById(R.id.tagcontainerLayout);
     }
 
     private void initData() throws JSONException {
@@ -101,7 +98,7 @@ public class GameIntroFragment extends Fragment {
         CustomApplication.getInstance().addToRequestQueue(request);      //加入请求队列
     }
 
-    public void getData(JSONObject response){
+    public void getData(JSONObject response) {
         JSONObject result = response.optJSONObject("result");
         imagesArray = result.optJSONArray("mulitimgs");
 
@@ -120,6 +117,7 @@ public class GameIntroFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onTagLongClick(int position, String text) {
 
@@ -128,12 +126,12 @@ public class GameIntroFragment extends Fragment {
         getImages();
     }
 
-    private List<HashMap<String, Object>> getImages(){
+    private List<HashMap<String, Object>> getImages() {
 
         ArrayList<HashMap<String, Object>> list = new ArrayList<>();
         HashMap<String, Object> map;
-        if(imagesArray != null){
-            for(int i = 0; i < imagesArray.length(); i++){
+        if (imagesArray != null) {
+            for (int i = 0; i < imagesArray.length(); i++) {
                 map = new HashMap<>();
                 try {
                     map.put("id", imagesArray.optJSONObject(i).get("id"));
@@ -148,7 +146,7 @@ public class GameIntroFragment extends Fragment {
         for (int i = 0; i < list.size(); i++) {
             Map<String, Object> map2 = new HashMap<>();
             String urlString = list.get(i).get("url").toString();
-            if(urlString.contains("http"))
+            if (urlString.contains("http"))
                 imgUrl[i] = urlString;
             else
                 imgUrl[i] = ContantValues.picRoot + urlString;
@@ -168,5 +166,11 @@ public class GameIntroFragment extends Fragment {
         //Intent intent = new Intent(getActivity(),AppListActivity.class).putExtras(bundle);
         //startActivity(intent);
         Toast.makeText(getActivity(), keywords, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

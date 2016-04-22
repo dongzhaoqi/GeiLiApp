@@ -12,63 +12,48 @@ import com.geili.R;
 import com.geili.activity.GameGiftActivity;
 import com.geili.activity.GameStrategyActivity;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by Dong on 2016/3/25.
  */
-public class FindFragment extends BaseFragment implements View.OnClickListener{
+public class FindFragment extends BaseFragment implements View.OnClickListener {
 
+    @Bind(R.id.layout_find_game) RelativeLayout layout_find_game;
+    @Bind(R.id.layout_find_tool) RelativeLayout layout_find_tool;
+    @Bind(R.id.layout_find_gift) RelativeLayout layout_find_gift;
+    @Bind(R.id.layout_find_strategy) RelativeLayout layout_find_strategy;
+    @Bind(R.id.layout_find_special) RelativeLayout layout_find_special;
+    @Bind(R.id.layout_find_week) RelativeLayout layout_find_week;
+    @Bind(R.id.layout_find_forum) RelativeLayout layout_find_forum;
+    @Bind(R.id.layout_find_sign) RelativeLayout layout_find_sign;
     private View mView;
-    private RelativeLayout layout_find_game,layout_find_tool,layout_find_gift,
-            layout_find_strategy,layout_find_special,
-            layout_find_week,layout_find_forum,layout_find_sign;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_find,container,false);
-        initView(mView);
+        mView = inflater.inflate(R.layout.fragment_find, container, false);
+        ButterKnife.bind(this, mView);
         return mView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initEvent();
-    }
-
-    private void initView(View v) {
-        layout_find_game = (RelativeLayout) v.findViewById(R.id.layout_find_game);
-        layout_find_tool = (RelativeLayout) v.findViewById(R.id.layout_find_tool);
-        layout_find_gift = (RelativeLayout) v.findViewById(R.id.layout_find_gift);
-
-        layout_find_special = (RelativeLayout) v.findViewById(R.id.layout_find_special);
-        layout_find_strategy = (RelativeLayout) v.findViewById(R.id.layout_find_strategy);
-
-        layout_find_week = (RelativeLayout) v.findViewById(R.id.layout_find_week);
-        layout_find_forum = (RelativeLayout) v.findViewById(R.id.layout_find_forum);
-        layout_find_sign = (RelativeLayout) v.findViewById(R.id.layout_find_sign);
-
-    }
-
-    private void initEvent(){
-        layout_find_game.setOnClickListener(this);
-        layout_find_tool.setOnClickListener(this);
-        layout_find_gift.setOnClickListener(this);
-
-        layout_find_strategy.setOnClickListener(this);
-        layout_find_special.setOnClickListener(this);
-
-        layout_find_week.setOnClickListener(this);
-        layout_find_forum.setOnClickListener(this);
-        layout_find_sign.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-        Bundle bundle = new Bundle();
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
 
-        int id = v.getId();
-        switch (id){
+    @OnClick({R.id.layout_find_game, R.id.layout_find_tool, R.id.layout_find_gift, R.id.layout_find_strategy,
+            R.id.layout_find_special, R.id.layout_find_week, R.id.layout_find_forum, R.id.layout_find_sign})
+    public void onClick(View view) {
+        Bundle bundle = new Bundle();
+        switch (view.getId()) {
             case R.id.layout_find_game:
                 break;
             case R.id.layout_find_tool:
@@ -94,7 +79,6 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
             case R.id.layout_find_sign:
                 showToast("已签到");
                 break;
-
         }
     }
 }

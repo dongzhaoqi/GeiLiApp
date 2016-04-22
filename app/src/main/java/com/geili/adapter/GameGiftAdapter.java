@@ -1,10 +1,7 @@
 package com.geili.adapter;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,23 +11,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.geili.R;
 import com.geili.bean.GameGift;
-import com.geili.util.CommonUtils;
 import com.geili.util.ContantValues;
-import com.geili.view.CustomApplication;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 /**
@@ -44,19 +34,15 @@ public class GameGiftAdapter extends RecyclerView.Adapter<GameGiftAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mGameImg;
-        public TextView mGameTitle;
-        public TextView mGameInfo;
-        private ProgressBar mProgress;
-        private Button game_gift_get;
+        @Bind(R.id.gift_img) ImageView mGameImg;
+        @Bind(R.id.gift_title) TextView mGameTitle;
+        @Bind(R.id.gift_info) TextView mGameInfo;
+        @Bind(R.id.progressBar_id) ProgressBar mProgress;
+        @Bind(R.id.game_gift_get) Button game_gift_get;
 
         public ViewHolder(View v) {
             super(v);
-            mGameImg = (ImageView) v.findViewById(R.id.gift_img);
-            mGameTitle = (TextView) v.findViewById(R.id.gift_title);
-            mGameInfo = (TextView) v.findViewById(R.id.gift_info);
-            mProgress = (ProgressBar) v.findViewById(R.id.progressBar_id);
-            game_gift_get = (Button) v.findViewById(R.id.game_gift_get);
+            ButterKnife.bind(this, v);
         }
     }
 
@@ -66,7 +52,7 @@ public class GameGiftAdapter extends RecyclerView.Adapter<GameGiftAdapter.ViewHo
     }
 
     @Override
-    public GameGiftAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game_gift, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;

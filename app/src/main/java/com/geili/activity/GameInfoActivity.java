@@ -21,16 +21,22 @@ import net.yanzm.mth.MaterialTabHost;
 
 import java.util.Locale;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Created by Dong on 2016/4/8.
  */
 public class GameInfoActivity extends BaseActivity {
 
-    private ImageView img_game;
-    private TextView tv_game_title;
-    private TextView tv_game_emulator;
-    private TextView tv_game_size;
-    private TextView tv_game_download;
+    @Bind(R.id.img_game) ImageView img_game;
+    @Bind(R.id.tv_game_title) TextView tv_game_title;
+    @Bind(R.id.tv_game_emulator) TextView tv_game_emulator;
+    @Bind(R.id.tv_game_download) TextView tv_game_download;
+    @Bind(R.id.tv_game_size) TextView tv_game_size;
+    @Bind(R.id.tabhost) MaterialTabHost tabHost;
+    @Bind(R.id.pager) ViewPager viewPager;
+
     private int pos = 0;
     private String id;
     private GameIntroFragment mGameIntroFragment;
@@ -42,22 +48,15 @@ public class GameInfoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_info);
+        ButterKnife.bind(this);
 
         initView();
     }
 
-    private void initView(){
-        img_game = (ImageView) findViewById(R.id.img_game);
-        tv_game_title = (TextView) findViewById(R.id.tv_game_title);
-        tv_game_emulator = (TextView) findViewById(R.id.tv_game_emulator);
-        tv_game_size = (TextView) findViewById(R.id.tv_game_size);
-        tv_game_download = (TextView) findViewById(R.id.tv_game_download);
-        MaterialTabHost tabHost = (MaterialTabHost) findViewById(R.id.tabhost);
+    private void initView() {
 
         Game game = (Game) getIntent().getExtras().getSerializable("game");
-        Picasso.with(GameInfoActivity.this)
-                .load(game.getImage())
-                .into(img_game);
+        Picasso.with(GameInfoActivity.this).load(game.getImage()).into(img_game);
         id = game.getId();
         tv_game_title.setText(game.getTitle());
         tv_game_size.setText(game.getSize());
@@ -79,7 +78,6 @@ public class GameInfoActivity extends BaseActivity {
             tabHost.addTab(pagerAdapter.getPageTitle(i));
         }
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(tabHost);
         viewPager.setCurrentItem(pos);
@@ -102,14 +100,14 @@ public class GameInfoActivity extends BaseActivity {
         public Fragment getItem(int position) {
             Bundle bundle = new Bundle();
             bundle.putString("id", id);
-            if(position == 0){
+            if (position == 0) {
                 mGameIntroFragment.setArguments(bundle);
                 return mGameIntroFragment;
-            }else if(position == 1){
+            } else if (position == 1) {
                 return mGameReviewFragment;
-            }else if(position == 2){
+            } else if (position == 2) {
                 return mGameStrategyFragment;
-            }else {
+            } else {
                 return mGameGiftFragment;
             }
         }
