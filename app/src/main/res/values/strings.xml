@@ -82,6 +82,7 @@
     <string name="enter_bbs">进入论坛社区</string>
     <string name="qq_community">QQ社群</string>
     <string name="enter_qqcommunity">进入QQ聊天群</string>
+    <string name="wechat">微信公众号</string>
 
     <string name="str_network">网游</string>
     <string name="str_single">单机</string>
@@ -94,7 +95,7 @@
 
     <string name="app_describ">应用描述</string>
 
-    <string name="info_message">
+    <string name="info_message2">
         <![CDATA[
             Header View is a library created by <b>Raphaël Bussa</b><br>
             <a href="https://github.com/rebus007">GitHub</a> <a href="https://twitter.com/rebus_007">Twitter</a> <a href="https://plus.google.com/+RaphaelBussa/posts">Google+</a> <a href="https://www.linkedin.com/in/rebus007">Linkedin</a><br><br>

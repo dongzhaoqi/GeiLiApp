@@ -109,7 +109,7 @@ public class RankGuideActivity extends BaseActivity {
         @Override
         public Fragment getItem(int position) {
             Bundle bundle = new Bundle();
-            bundle.putString("rankCategory", "360");
+            bundle.putString("rankCategory", rankCategory);
             if(position == 0){
                 networkFragment.setArguments(bundle);
                 return networkFragment;

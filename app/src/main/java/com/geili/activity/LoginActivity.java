@@ -171,6 +171,12 @@ public class LoginActivity extends BaseActivity {
                 .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setContentHolder(new ViewHolder(R.layout.activity_register))
                 .setGravity(Gravity.CENTER)
+                .setOnClickListener(new com.orhanobut.dialogplus.OnClickListener() {
+                    @Override
+                    public void onClick(DialogPlus dialog, View view) {
+                        showToast("注册");
+                    }
+                })
                 .create();
         dialog.show();
     }

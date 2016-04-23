@@ -45,7 +45,6 @@ public class GameStrategyFragment extends Fragment {
 
         //设置WebView属性，能够执行Javascript脚本
         webview.getSettings().setJavaScriptEnabled(true);
-        //加载需要显示的网页
 
         //设置Web视图
         webview.setWebViewClient(new HelloWebViewClient());
@@ -86,6 +85,8 @@ public class GameStrategyFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("onResponse", response.toString());
+                strategy_titleTextView.setText(response.optJSONObject("result").optString("title"));
+                webview.loadUrl(response.optJSONObject("result").optString("url"));
             }
         };
 

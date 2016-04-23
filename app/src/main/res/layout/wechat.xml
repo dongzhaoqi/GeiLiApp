@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/imgBackground"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar"/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/wechat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:lineSpacingExtra="10dp"
+        android:layout_marginTop="32dp"
+        android:text="关注蓝手指微信公众号可随时接收最新最酷应用资讯
+        方法一:直接在微信公众号搜索'蓝手指';\n
+        方法二:扫描上方二维码;\n
+        方法三:长按上方二维码图片,保存到手机相册	,用微信扫一扫功能,选择'从相册选择二维码',手指点右上角三小点后可选),选中刚保存的二维码图片。"
+        android:textColor="#FF7F00" />
+
+</LinearLayout>

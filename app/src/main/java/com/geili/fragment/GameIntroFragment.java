@@ -153,7 +153,7 @@ public class GameIntroFragment extends Fragment {
             map2.put("image", imgUrl[i]);
             adapter.addObject(map2);
         }
-        movieLayout.setAdapter(adapter);
+        movieLayout.setAdapter(imgUrl, adapter);
         return list;
     }
 
