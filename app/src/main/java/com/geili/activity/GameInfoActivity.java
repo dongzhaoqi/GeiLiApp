@@ -30,22 +30,14 @@ import butterknife.ButterKnife;
  */
 public class GameInfoActivity extends BaseActivity {
 
-    @Bind(R.id.img_game)
-    ImageView img_game;
-    @Bind(R.id.tv_game_title)
-    TextView tv_game_title;
-    @Bind(R.id.tv_game_emulator)
-    TextView tv_game_emulator;
-    @Bind(R.id.tv_game_download)
-    TextView tv_game_download;
-    @Bind(R.id.tv_game_size)
-    TextView tv_game_size;
-    @Bind(R.id.tabhost)
-    MaterialTabHost tabHost;
-    @Bind(R.id.pager)
-    ViewPager viewPager;
-    @Bind(R.id.detail_view)
-    ViewPager detailView;
+    @Bind(R.id.img_game) ImageView img_game;
+    @Bind(R.id.tv_game_title) TextView tv_game_title;
+    @Bind(R.id.tv_game_emulator) TextView tv_game_emulator;
+    @Bind(R.id.tv_game_download) TextView tv_game_download;
+    @Bind(R.id.tv_game_size) TextView tv_game_size;
+    @Bind(R.id.tabhost) MaterialTabHost tabHost;
+    @Bind(R.id.pager) ViewPager viewPager;
+    @Bind(R.id.detail_view) ViewPager detailView;
 
     private int pos = 0;
     private String id;
