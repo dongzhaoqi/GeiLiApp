@@ -52,4 +52,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'cn.aigestudio.downloader:Downloader:1.4.3'
 }

@@ -69,7 +69,6 @@
                 android:layout_height="15dp"
                 android:textSize="13sp"
                 android:textColor="#f3b174"
-                android:text="10%"
                 />
         </LinearLayout>
 

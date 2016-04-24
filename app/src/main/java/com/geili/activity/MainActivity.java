@@ -142,7 +142,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         Picasso.with(MainActivity.this)
                 .load(getString(R.string.url_img_profile))
                 .into(headerView.avatar());
-        String userName = ((CustomApplication) getApplication()).getmUser().getUserName();
+        String userName = null;
+        if(((CustomApplication) getApplication()).getmUser() != null){
+            userName = ((CustomApplication) getApplication()).getmUser().getUserName();
+        }
         if (userName != null) {
             headerView.username(userName);
         }

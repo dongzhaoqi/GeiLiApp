@@ -121,12 +121,14 @@ public class SingleFragment extends Fragment {
         for(int i = 0; i < result.length(); i++){
             Game game = new Game();
             String picUrl = result.optJSONObject(i).getString("pic").replace("\\", "");
+            String downloadUrl = result.optJSONObject(i).getString("url").replace("\\", "");
             if (picUrl.contains("http"))
                 game.setImage(picUrl);
             else
                 game.setImage(ContantValues.picRoot + picUrl);
             game.setId(result.optJSONObject(i).getString("id"));
             game.setTitle(result.optJSONObject(i).getString("name"));
+            game.setUrl(downloadUrl);
             game.setDownloadNumber(result.optJSONObject(i).getString("downloadNumber"));
             game.setSize(result.optJSONObject(i).getString("size"));
             gameList.add(game);
